@@ -32,9 +32,9 @@ CREATE TABLE quotes (
 ## Things to Change in Code
 In AddQuoteActivity.kt, update the addQuote function:
 ```kotlin
-suspend fun addQuote() {
-    client.get("http://[your-ip-address]/randomquoteapp/REST/addquote.php")
-}
+suspend fun addQuote(context: Context, author: String, quote: String) {
+    val client = HttpClient(CIO)
+    val response: HttpResponse = client.get("http://[your-ip-address]/randomquoteapp/REST/addquote.php") {}
 ```
 
 ## How to Get Your IP Address (Windows)
