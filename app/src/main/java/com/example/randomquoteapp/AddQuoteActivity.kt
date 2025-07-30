@@ -7,9 +7,12 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -25,6 +28,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -53,16 +57,22 @@ class AddQuoteActivity : ComponentActivity() {
 
 @SuppressLint("ContextCastToActivity")
 @Composable
-fun AddQuoteScreen(
-    modifier: Modifier = Modifier,
-
-) {
-    val activity = LocalContext.current as Activity
-
-    Column {
-        Text("This is Add Quote Screen")
-
-        QuoteInput()
+fun AddQuoteScreen(modifier: Modifier = Modifier) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("This is Add Quote Screen")
+            Spacer(modifier = Modifier.height(16.dp))
+            QuoteInput()
+        }
     }
 }
 
@@ -98,16 +108,20 @@ fun QuoteInput() {
             modifier = Modifier.fillMaxWidth()
         )
 
-        AddQuoteButtonRow(author = author, quote = quote)
+        AddQuoteButtonRow(author = author, quote = quote, onClear = {author = ""; quote = ""})
     }
 }
 
 @SuppressLint("ContextCastToActivity")
 @Composable
-fun AddQuoteButtonRow(author: String, quote: String) {
+fun AddQuoteButtonRow(author: String, quote: String, onClear: () -> Unit) {
     val mContext = LocalContext.current
     val coroutineScope = rememberCoroutineScope()
-    Row() {
+    Row(
+        modifier = Modifier.fillMaxWidth().padding(top = 16.dp),
+        horizontalArrangement = Arrangement.Center,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
         Button(onClick = { (mContext as Activity).finish() }) {
             Text("Back")
         }
@@ -116,6 +130,7 @@ fun AddQuoteButtonRow(author: String, quote: String) {
         Button(onClick = {
             coroutineScope.launch {
                 addQuote(mContext, author, quote)
+                onClear()
             }
         }) {
             Text("Add Quote")
