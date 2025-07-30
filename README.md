@@ -48,3 +48,13 @@ ipconfig
 ```css
 IPv4 Address . . . . . . . . . . : 192.168.X.X
 ```
+
+## How to share your code back to this repo:
+1. In Android Studio Terminal, type following commands:
+```bash
+git init
+git add .
+git commit
+git checkout test
+git push origin test
+```
