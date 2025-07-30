@@ -7,6 +7,7 @@ AGP: 8.9.1
 Kotlin: 2.0.21
 
 How to clone to local machine:
-1. Enter repo URL https://github.com/pydash/randomquoteapp
-2. Sync with Gradle
-3. Run
+1. In Android Studio home, select Clone
+2. Enter repo URL https://github.com/pydash/randomquoteapp
+3. Sync with Gradle
+4. Run
