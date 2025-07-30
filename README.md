@@ -5,6 +5,7 @@ Android Studio Version Used: Android Studio Narwhal 2025.1.1 Patch 1
 [versions]
 AGP: 8.9.1
 Kotlin: 2.0.21
+ktor: 3.2.2
 
 How to run in local machine:
 1. In Android Studio home, select Clone
