@@ -15,10 +15,9 @@
 1. Open Android Studio and select **Clone**.
 2. Enter the repo URL: https://github.com/pydash/randomquoteapp
 3. Sync the project with Gradle.
-4. Run the app.
-5. Move the folder `randomquoteapp` from this repo into: xampp\htdocs\
-6. Open XAMPP and start **Apache** and **MySQL**.
-7. Create a database named `quotedb` and a table named `quotes`.
+4. Move the folder `randomquoteapp` from this repo into: xampp\htdocs\
+5. Open XAMPP and start **Apache** and **MySQL**.
+6. Create a database named `quotedb` and a table named `quotes`.
 
 ### SQL Query to Create Table:
 ```sql
@@ -28,6 +27,7 @@ CREATE TABLE quotes (
  author VARCHAR(100)
 );
 ```
+8. Run the app.
 
 ## Things to Change in Code
 In AddQuoteActivity.kt, update the addQuote function:
