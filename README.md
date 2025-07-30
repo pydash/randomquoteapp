@@ -27,7 +27,7 @@ CREATE TABLE quotes (
  author VARCHAR(100)
 );
 ```
-8. Run the app.
+7. Run the app.
 
 ## Things to Change in Code
 In AddQuoteActivity.kt, update the addQuote function:
