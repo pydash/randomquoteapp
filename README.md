@@ -24,3 +24,8 @@ CREATE TABLE quotes (
 
 Things to change in code:
 1. AddQuoteActivity.kt --> suspend fun addQuote --> client.get("[your ip address]/randomquoteapp/REST/addquote.php")
+
+How to get my ip address?
+in windows search cmd
+type ipconfig
+look for: IPv4...............192.168.X.X
