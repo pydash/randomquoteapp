@@ -1,31 +1,48 @@
-# randomquoteapp
+# Random Quote App
 
-Android Studio Version Used: Android Studio Narwhal 2025.1.1 Patch 1
+## Android Studio Version
+- Android Studio Narwhal 2025.1.1 Patch 1
 
-[versions]
-AGP: 8.9.1
-Kotlin: 2.0.21
-ktor: 3.2.2
+## Versions
+- AGP: 8.9.1
+- Kotlin: 2.0.21
+- Ktor: 3.2.2
 
-How to run in local machine:
-1. In Android Studio home, select Clone
-2. Enter repo URL https://github.com/pydash/randomquoteapp
-3. Sync with Gradle
-4. Run
-5. move folder 'randomquoteapp' found in this repo to xampp\htdocs\
-6. Open xampp; start apache and mysql
-7. Create database 'quotedb' and table 'quotes'
-use this query to make the table
+---
+
+## How to Run on Local Machine
+
+1. Open Android Studio and select **Clone**.
+2. Enter the repo URL: https://github.com/pydash/randomquoteapp
+3. Sync the project with Gradle.
+4. Run the app.
+5. Move the folder `randomquoteapp` from this repo into: xampp\htdocs\
+6. Open XAMPP and start **Apache** and **MySQL**.
+7. Create a database named `quotedb` and a table named `quotes`.
+
+### SQL Query to Create Table:
+```sql
 CREATE TABLE quotes (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    text VARCHAR(255) NOT NULL,
-    author VARCHAR(100)
-); 
+ id INT PRIMARY KEY AUTO_INCREMENT,
+ text VARCHAR(255) NOT NULL,
+ author VARCHAR(100)
+);
+```
 
-Things to change in code:
-1. AddQuoteActivity.kt --> suspend fun addQuote --> client.get("[your ip address]/randomquoteapp/REST/addquote.php")
+## Things to Change in Code
+In AddQuoteActivity.kt, update the addQuote function:
+suspend fun addQuote() {
+    client.get("http://[your-ip-address]/randomquoteapp/REST/addquote.php")
+}
 
-How to get my ip address?
-in windows search cmd
-type ipconfig
-look for: IPv4...............192.168.X.X
+## How to Get Your IP Address (Windows)
+
+1. Open CMD.
+2. Type:
+```nginx
+ipconfig
+```
+3. Find the line:
+```css
+IPv4 Address . . . . . . . . . . : 192.168.X.X
+```
