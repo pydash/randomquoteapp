@@ -31,6 +31,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.unit.sp
 
+
 class IntentActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +46,7 @@ class IntentActivity : ComponentActivity() {
                     horizontalAlignment = Alignment.CenterHorizontally // Centers children horizontally
                 ) {
                     // Greeting could be here if you want it above the centered button
-                    Greeting(intro = "to the Random Quote Generator App")
+                    Greeting()
                     GoToNextAct()
                 }
             }
@@ -56,9 +57,9 @@ class IntentActivity : ComponentActivity() {
 
 
 @Composable
-fun Greeting(intro: String, modifier: Modifier = Modifier) {
+fun Greeting(modifier: Modifier = Modifier) {
     Text(
-        text = "Welcome $intro!",
+        text = "Welcome to the Random Quote Generator App!",
         modifier = modifier.padding(bottom = 18.dp),
         fontSize = 30.sp,
         textAlign = TextAlign.Center,
@@ -66,20 +67,20 @@ fun Greeting(intro: String, modifier: Modifier = Modifier) {
     )
 }
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    RandomquoteappTheme {
-        Greeting("Random Quote Generator App")
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun GreetingPreview() {
+//    RandomquoteappTheme {
+//        Greeting("Random Quote Generator App")
+//    }
+//}
 
 @Composable
 fun GoToNextAct(modifier: Modifier = Modifier) { // modifier parameter is good practice
     val mContext = LocalContext.current
     Button(
         onClick = {
-            val intent = Intent(mContext, MainActivity::class.java)
+            val intent = Intent(mContext, HomeActivity::class.java)
             intent.putExtra("IntentBtn", "StartApplication")
             mContext.startActivity(intent)
         },

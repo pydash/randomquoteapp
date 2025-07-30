@@ -1,5 +1,6 @@
 package com.example.randomquoteapp
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -28,6 +29,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.Image
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.layout.ContentScale
+
+import io.ktor.client.*
+import io.ktor.client.engine.cio.*
+import io.ktor.client.request.*
+import io.ktor.client.statement.*
+import io.ktor.client.call.body
+import io.ktor.client.statement.*
+import kotlinx.coroutines.launch
 
 
 class MainActivity : ComponentActivity() {

@@ -3,4 +3,6 @@
     <string name="title_activity_quote_repository">QuoteRepository</string>
     <string name="title_activity_quote">Quote</string>
     <string name="title_activity_intent">IntentActivity</string>
+    <string name="home_title">Home Screen</string>
+    <string name="add_quote_title">Add Quote</string>
 </resources>
