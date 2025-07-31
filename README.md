@@ -23,9 +23,9 @@
 ```sql
 CREATE TABLE quotes (
  id INT PRIMARY KEY AUTO_INCREMENT,
- text VARCHAR(255) NOT NULL,
- author VARCHAR(100)
-);
+ author VARCHAR(100) NOT NULL,
+ quote TEXT NOT NULL
+)
 ```
 7. Run the app.
 
@@ -58,3 +58,6 @@ git commit
 git checkout test
 git push origin test
 ```
+
+
+
